@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <title><%=title%></title>
+    <style>
+        p {
+            color: lightslategrey;
+            font-size: 0.8rem;
+        }
+
+        h2 a {
+            text-decoration: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            font-size: 0.8rem;
+        }
+
+        table thead {
+            background-color: gray;
+            color: white;
+        }
+
+        table td {
+            padding: 0.8rem 0.3rem;
+            border: 1px solid #ececec;
+        }
+
+        .info {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h2><a href="?">TraceLink</a></h2>
+    <p>根据 requestMapping 查询出 traceId , 再根据 traceId 查询整个业务流程。若此页记录总数为101（每页最大记录数）, 
+        表示数据可能没有获取完，可以添加 &skip=101 参数获取剩下的数据。</p>
+    <p class="info">此页记录数[<%=datas.length%>]</p>
+    <table>
+        <thead>
+            <th>traceId</th>
+            <th>requestMapping</th>
+            <th>methodName</th>
+            <th>returnValue</th>
+            <th>createTime</th>
+            <th>className</th>
+            <th>spanId</th>
+            <th>sourceLocation</th>
+        </thead>
+        <tbody>
+            <% for (var i = 0; i < datas.length; i++) { %>
+            <tr>
+                <td><%=datas[i].trace_id%></td>
+                <td><%=datas[i].request_mapping%></td>
+                <td><%=datas[i].method_name%></td>
+                <td><%=datas[i].return_value%></td>
+                <td><%=datas[i].create_time%></td>
+                <td><%=datas[i].class_name%></td>
+                <td><%=datas[i].span_id%></td>
+                <td><%=datas[i].source_location%></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+
+</html>

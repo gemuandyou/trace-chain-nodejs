@@ -1,0 +1,16 @@
+{
+  "name": "trace-link",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "supervisor ./node/server.js"
+  },
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.16.3",
+    "jquery": "^3.4.1",
+    "mongodb": "^3.3.2"
+  }
+}
